@@ -232,9 +232,10 @@ Estos archivos permiten documentar las dependencias y el proceso de construcció
 
 ## Automatización y plantillas Jinja2
 
-La automatización implementada en esta versión del proyecto se realizó mediante scripts desarrollados en Python utilizando Netmiko, junto con archivos de configuración persistente y scripts de inicio de los diferentes nodos.
+La automatización implementada en NETCLOUD-SECURE fue desarrollada mediante scripts en Python utilizando principalmente la librería Netmiko para establecer conexiones SSH con los dispositivos del Fabric, ejecutar tareas de configuración y obtener información operativa de manera centralizada.
 
-No se utilizaron plantillas Jinja2 durante la implementación final. Por esta razón, el repositorio no contiene archivos `.j2`, `.jinja` o `.jinja2`.
+El script `automate_fabric.py` utiliza además la librería Jinja2 mediante la clase `Template`. La plantilla se encuentra embebida directamente dentro del código Python y permite generar dinámicamente los comandos de configuración correspondientes a cada dispositivo administrado.
 
-La configuración y automatización efectivamente utilizada puede consultarse en las carpetas `automation/`, `fabric/` y en los respectivos directorios de configuración de cada componente.
+Por esta razón, el proyecto utiliza Jinja2 como parte del proceso de automatización, aunque no se emplearon archivos de plantilla externos con extensiones `.j2`, `.jinja` o `.jinja2`.
 
+Los componentes de automatización utilizados pueden consultarse principalmente en las carpetas `automation/` y `fabric/`, donde se encuentran los scripts Python, archivos de inventario y configuraciones persistentes de los dispositivos.
