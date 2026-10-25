@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package telemetry;
+
+service TelemetryService {
+  rpc StreamMetrics(Empty) returns (stream Metric);
+}
+
+message Empty {}
+
+message Metric {
+  string timestamp = 1;
+  string source = 2;
+  string status = 3;
+  double latency_ms = 4;
+}
